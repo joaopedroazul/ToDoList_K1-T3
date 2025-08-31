@@ -1,15 +1,18 @@
+import java.sql.Date;
+import java.time.LocalDate;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        //Testando a instancia de Objeto
+        Tarefa t = new Tarefa("nome", "descricao",Date.valueOf(LocalDate.now()),1 ,"Teste", "ToDo");
+        System.out.println(t.getNome());
+        System.out.println(t.getDescricao());
+        System.out.println(t.getData_end());
+        System.out.println(t.getPrioridade());
+        System.out.println(t.getCategoria());
+        System.out.println(t.getStatus());
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
     }
 }

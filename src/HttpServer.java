@@ -19,6 +19,10 @@ public class HttpServer {
         isRunning = true;
 
         System.out.println("Servidor iniciado na Porta " + port);
+        while (isRunning) {
+            Socket clientSocket = serverSocket.accept();
+            executor.execute(new Routes(clientSocket));
+        }
     }
 
     public void stop() throws IOException {

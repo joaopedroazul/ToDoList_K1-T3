@@ -74,6 +74,12 @@ public class Routes implements Runnable {
                 return toJsonArray(tarefas);
             }
 
+            // Ordem
+            if (path.equals("/tarefas/ordem") && method.equals("GET")) {
+                List<Tarefa> tarefas = TarefaController.ordemTarefas();
+                return toJsonArray(tarefas);
+            }
+
             // POST CREATE
             if (path.equals("/tarefas") && method.equals("POST")) {
                 Tarefa tarefas = fromJson(body, Tarefa.class);
@@ -86,6 +92,18 @@ public class Routes implements Runnable {
 
 
             }
+
+            Pattern patternList = Pattern.compile("^/tarefas/lista/([^/]+)$");
+            Matcher matcher1 = patternList.matcher(path);
+            if (matcher1.matches()) {
+                String att = matcher1.group(1);
+                if (method.equals("GET")) {
+                    List<Tarefa> tarefas = TarefaController.retornaLista(att);
+                    return toJsonArray(tarefas);
+                }
+            }
+
+
 
             Pattern pattern = Pattern.compile("^/tarefas/(\\d+)$");
             Matcher matcher = pattern.matcher(path);

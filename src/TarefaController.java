@@ -1,6 +1,10 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.net.ConnectException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class TarefaController {
     public static void createTableTarefa() throws SQLException {
@@ -80,7 +84,6 @@ public class TarefaController {
         String sql = "SELECT * FROM tarefas where id = "+Integer.toString(index)+" and isDelete = false";
 
         try (Connection conn = ConnectDB.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(sql);
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
 
@@ -97,6 +100,89 @@ public class TarefaController {
         }
         return null;
     }
+
+
+    public static  List<Tarefa> ordemTarefas() throws SQLException {
+        List<Tarefa> ordem = new ArrayList<>();
+        String sql = "SELECT * FROM tarefas ORDER BY prioridade DESC, id ASC";
+
+        try(Connection conn = ConnectDB.getConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql)){
+
+            while (rs.next()) {
+                ordem.add(new Tarefa(
+                        rs.getString("nome"),
+                        rs.getString("descricao"),
+                        rs.getDate("data_end"),
+                        rs.getInt("prioridade"),
+                        rs.getString("categoria"),
+                        rs.getString("status")
+                ));
+            }
+        }
+        return ordem;
+    }
+
+    public static List<Tarefa> retornaLista(String key) throws SQLException {
+        List<Tarefa> tarefas = new ArrayList<>();
+        String sql =  Character.isDigit(key.charAt(0)) ? "SELECT * FROM tarefas WHERE prioridade = "+key: "SELECT * FROM tarefas WHERE status LIKE '"+key+"'"+" or categoria LIKE '"+key+"'";
+
+        try(Connection conn = ConnectDB.getConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql)){
+
+            while (rs.next()) {
+                tarefas.add(new Tarefa(
+                        rs.getString("nome"),
+                        rs.getString("descricao"),
+                        rs.getDate("data_end"),
+                        rs.getInt("prioridade"),
+                        rs.getString("categoria"),
+                        rs.getString("status")
+                ));
+            }
+        }
+
+        return tarefas;
+
+    }
+
+    public static void initTarefa() throws SQLException, FileNotFoundException {
+
+        Tarefa tarefa = new Tarefa();
+        File faker = new File("./src/TarefasTemplate.txt");
+        if (!faker.exists()) {
+            System.out.println("Arquivo não encontrado. Procurando em: " + faker.getAbsolutePath());
+            return;
+        }
+        try(Scanner s = new Scanner(faker)){
+            while (s.hasNextLine()) {
+                String line = s.nextLine();
+                System.out.println(line);
+                List<String> data = new ArrayList<>();
+                int i =0 ;
+                while(line.lastIndexOf("|") != -1 || i >0){
+                    data.add(line.substring(line.lastIndexOf("|")+1, line.length()));
+                    line = line.substring(0, line.lastIndexOf("|"));
+
+                    if(line.lastIndexOf("|") == -1){
+                        data.add(line.substring(0, line.length()));
+                    }
+
+                }
+
+                tarefa.setNome(data.get(5));
+                tarefa.setDescricao(data.get(4));
+                tarefa.setData_end(Date.valueOf(data.get(3)));
+                tarefa.setPrioridade(Integer.parseInt(data.get(2)));
+                tarefa.setCategoria(data.get(1));
+                tarefa.setStatus(data.get(0));
+                TarefaController.createTarefa(tarefa);
+            }
+        }
+    }
+
 
 
     public static boolean updateTarefa(Tarefa t1,int index) throws SQLException {

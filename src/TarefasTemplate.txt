@@ -1,0 +1,30 @@
+Estudar Python|Completar módulo de funções|2024-08-30|4|Estudos|todo
+Pagar conta de luz|Vencer dia 05/09|2024-09-04|5|Finanças|todo
+Reunião com equipe|Apresentar novos projetos|2024-08-28|3|Trabalho|doing
+Academia|Treino de pernas|2024-08-27|2|Saúde|done
+Compras do mês|Mercado e farmácia|2024-09-02|4|Casa|todo
+Ler livro|Capítulos 5-8 de 'Hábitos Atômicos'|2024-09-10|3|Pessoal|doing
+Marcar dentista|Check-up semestral|2024-09-15|2|Saúde|todo
+Preparar apresentação|Slides para reunião de diretoria|2024-09-05|5|Trabalho|todo
+Limpar garagem|Organizar e descartar itens desnecessários|2024-09-20|1|Casa|todo
+Planejar férias|Pesquisar destinos e preços|2024-10-01|3|Lazer|doing
+Doar roupas|Separar peças para doação|2024-09-12|2|Social|todo
+Atualizar currículo|Incluir projetos recentes|2024-09-03|4|Profissional|doing
+Assistir webinar|Marketing Digital às 19h|2024-08-29|3|Aprendizado|todo
+Regar plantas|Todas as plantas da varanda|2024-08-28|1|Casa|done
+Revisar contrato|Analisar cláusulas do novo contrato|2024-09-06|5|Trabalho|todo
+Fazer caminhada|30 minutos no parque|2024-08-27|2|Saúde|done
+Organizar email|Limpar caixa de entrada|2024-09-08|1|Organização|todo
+Preparar relatório|Dados de vendas do trimestre|2024-09-09|4|Trabalho|doing
+Assistir filme|Ver novo lançamento no streaming|2024-09-07|1|Lazer|todo
+Comprar presente|Aniversário da mãe|2024-09-18|4|Pessoal|todo
+Revisar carro|Troca de óleo e revisão geral|2024-09-25|3|Automóvel|todo
+Escrever artigo|Post para blog sobre tecnologia|2024-09-15|4|Escrita|doing
+Resolver imposto|Declaração do MEI|2024-09-30|5|Finanças|todo
+Aprender receita nova|Prato italiano|2024-09-05|2|Culinária|todo
+Limpar computador|Organizar arquivos e desfragmentar|2024-09-10|3|Tecnologia|todo
+Meditar|Sessão de 20 minutos|2024-08-27|2|Bem-estar|done
+Plantar horta|Temperos e verduras|2024-09-22|1|Jardim|todo
+Reunião pais e professores|Escola das crianças às 14h|2024-09-04|4|Família|todo
+Trocar lâmpadas|Cozinha e quarto|2024-09-03|2|Casa|doing
+Planejar semana|Definir metas e tarefas|2024-09-01|3|Organização|todo

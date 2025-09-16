@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo List</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Todo List</h1>
+    </header>
+    
+     
+    <div class="card">
+        <form id="task-form">  
+            <label for="task">Nome:</label>
+            <input type="text" id="Nome" name="task" required>
+            </br></br>
+            <label for="task">Descrição:</label>
+            <input type="text" id="Descricao" name="task" required>
+            </br></br>   
+            <label for="task">Data_entrega:</label>
+            <input type="date" id="Data_entrega" name="task" required>
+            </br></br>   
+            <label for="task">Prioridade:</label>
+            <input type="text" id="Prioridade" name="task" required>
+            </br></br>   
+            <label for="task">Categoria:</label>
+            <input type="text" id="Categoria" name="task" required>
+            </br></br>   
+            <label for="task">Status:</label>
+            <input type="text" id="Status" name="task" required>
+            </br></br>   
+
+            
+            <button type="button" onclick="createTask()">Add Task</button>
+        </form>
+    </div>
+    
+    <script src="js/create.js"></script>
+</body>
+</html>

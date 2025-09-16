@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Todo List</h1>
+    </header>
+    <div id = "list-task">
+        <label for="cars">filtre as tarefas pelo status:</label>
+        <select id="task-options">
+            <!-- Tasks will be populated here -->
+            <option value="all" selected>all</option>
+            <option value="todo">todo</option>
+            <option value="doing">doing</option>
+            <option value="done">done</option>
+          </select>
+    </div>
+
+    <div id = "show_tasks">    
+    </div>
+    <div id = "create-task">
+        <button id ="create-button">Criar uma nova tarefa</button>  
+    </div>
+    
+    <script src="js/home.js"></script>
+</body>
+</html>
